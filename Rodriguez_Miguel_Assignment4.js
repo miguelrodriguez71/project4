@@ -5,6 +5,8 @@
 // Global Variables
 var phonePattern;
 var emailFormat;
+var urlFormat;
+var upperCaseInitial;
 
 
 // Functions
@@ -29,7 +31,7 @@ chkPhonePattern = function(arg) {
 };
 
 // Function to verify email address format
-// Allows to have .com. .org .tv .net
+// Allows to have .com. .org .tv .net among others
 
 checkEmailFormat = function(arg) {
     // search values @ and .com within argument
@@ -38,12 +40,6 @@ checkEmailFormat = function(arg) {
     var dat = arg.indexOf(".");                     // get index of .
     var notTogether = arg.indexOf("@.");            // verify @. not math
     var totalChars = arg.length;
-    
-    console.log("argLowerCase: " +argLowerCase);
-    console.log("atCode: " +atCode);
-        console.log("dat: " + dat);
-            console.log("notTogether: " +notTogether);
-                console.log("totalChars: " +totalChars);
                 
                 
     if (atCode < dat) {                 // @ is before the .
@@ -65,8 +61,41 @@ checkEmailFormat = function(arg) {
 };
 
 
+// Function to check a URL
+// strings must begin with a http:// or https://
 
-// Main Code
+var checkURL = function(arg) {
+    if (arg.substr(0,7) === "http://" || arg.substr(0,8) === "https://" ) {
+        //valid URL
+        return true;
+    }
+    return false;
+};
+
+
+// Function to Capitalize first letter of every word in a string
+
+var stringToUpperCaseInitial = function(arg) {
+    var firstLetter;
+    var firstLetterUpper;
+    var restOfWord;
+    var wordLength;
+    var changeToLowerCase = arg.toLowerCase();
+    var arrayString = changeToLowerCase.split(" ")
+    var wordUpperInitial = "";
+    
+    for (var i = 0; i < arrayString.length; i++) {
+        firstLetter = arrayString[i].substr(0,1);
+        firstLetterUpper = firstLetter.toUpperCase();
+        wordLength = arrayString[i].length - 1;
+        restOfWord = arrayString[i].substr(1, wordLength)
+        wordUpperInitial = wordUpperInitial + firstLetterUpper + restOfWord + " ";
+    };
+    return wordUpperInitial
+};
+
+
+// MAIN CODE
 // Check a Phone Number pattern
 
 phonePattern = chkPhonePattern("352-426-4008");
@@ -77,9 +106,10 @@ if (phonePattern) {
     console.log("Wrong Phone Number Pattern");
 };
 
+
 //Check an email address format
 
-emailFormat = checkEmailFormat("a@a.tv");
+emailFormat = checkEmailFormat("miguel@aim.com");
 if (emailFormat) {
     //true value returned
     console.log("valid email address format!");
@@ -87,3 +117,18 @@ if (emailFormat) {
     console.log("invalid email address format!");
 };
 
+
+// Verify if a string is a URL
+
+urlFormat = checkURL("https://www.visualbitscorp.com");
+if (urlFormat) {
+    //true value returned
+    console.log("valid URL format!");
+} else {
+    console.log("invalid URL format!");
+};
+
+// UPPER CASE FIRST INICIAL EVERY WORD IN STRING
+
+upperCaseInitial = stringToUpperCaseInitial("MIGUEL");
+console.log(upperCaseInitial);
