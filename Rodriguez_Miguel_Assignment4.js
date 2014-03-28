@@ -8,9 +8,11 @@ var emailFormat;
 var urlFormat;
 var upperCaseInitial;
 var stringToNumber;
+var arrayToSum; 
+var numericTotalValue;
 
 
-// Functions
+// FUNCTIONS
 
 // Function to verify a phone number pattern
 
@@ -109,6 +111,22 @@ var getNumberDataType = function(arg) {
 };
 
 
+// FUNCTION FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
+
+var sumArrayNumberDataOnly = function(arrayArg) {
+    var sumNumbers = 0;
+    for (var i = 0; i < arrayArg.length; i++) {
+        if (typeof(arrayArg[i]) === "number") {
+            //Value in Array Index is a number
+            sumNumbers = sumNumbers + arrayArg[i];
+        };
+    };
+    return sumNumbers;
+    
+};
+
+
+
 
 // MAIN CODE
 // Check a Phone Number pattern
@@ -151,5 +169,20 @@ console.log(upperCaseInitial);
 
 
 // CHANGE A STRING VERSION OF A NUMBER TO A NUMBER DATA TYPE
+
 stringToNumber = getNumberDataType("000001971");
 console.log(stringToNumber);
+
+
+// FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
+
+arrayToSum = ["tree",10,5,"5","3MM",20,55,"31"]; 
+numericTotalValue = sumArrayNumberDataOnly(arrayToSum);
+console.log("Total Value of just numbers in array: " + numericTotalValue);
+
+
+
+
+
+
+
