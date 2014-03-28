@@ -14,7 +14,7 @@ var numericTotalValue;
 
 // FUNCTIONS
 
-// Function to verify a phone number pattern
+// 1. Function to verify a phone number pattern
 
 chkPhonePattern = function(arg) {
     
@@ -33,7 +33,7 @@ chkPhonePattern = function(arg) {
     return false;
 };
 
-// Function to verify email address format
+// 2. Function to verify email address format
 // Allows to have .com. .org .tv .net among others
 
 checkEmailFormat = function(arg) {
@@ -64,7 +64,7 @@ checkEmailFormat = function(arg) {
 };
 
 
-// Function to check a URL
+// 3. Function to check a URL
 // strings must begin with a http:// or https://
 
 var checkURL = function(arg) {
@@ -76,7 +76,7 @@ var checkURL = function(arg) {
 };
 
 
-// Function to Capitalize first letter of every word in a string
+// 4. Function to Capitalize first letter of every word in a string
 
 var stringToUpperCaseInitial = function(arg) {
     var firstLetter;
@@ -88,6 +88,7 @@ var stringToUpperCaseInitial = function(arg) {
     var wordUpperInitial = "";
     
     for (var i = 0; i < arrayString.length; i++) {
+        
         firstLetter = arrayString[i].substr(0,1);
         firstLetterUpper = firstLetter.toUpperCase();
         wordLength = arrayString[i].length - 1;
@@ -97,7 +98,7 @@ var stringToUpperCaseInitial = function(arg) {
     return wordUpperInitial;
 };
 
-// FUNCTION TO CHANGE A STRING ARGUMENT TO NUMBER DATA TYPE
+// 5. FUNCTION TO CHANGE A STRING ARGUMENT TO NUMBER DATA TYPE
 
 var getNumberDataType = function(arg) {
     if (!isNaN(arg)) {
@@ -111,7 +112,7 @@ var getNumberDataType = function(arg) {
 };
 
 
-// FUNCTION FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
+// 6. FUNCTION FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
 
 var sumArrayNumberDataOnly = function(arrayArg) {
     var sumNumbers = 0;
@@ -129,7 +130,7 @@ var sumArrayNumberDataOnly = function(arrayArg) {
 
 
 // MAIN CODE
-// Check a Phone Number pattern
+// 1. Check a Phone Number pattern
 
 phonePattern = chkPhonePattern("352-426-4008");
 if (phonePattern) {
@@ -140,7 +141,7 @@ if (phonePattern) {
 };
 
 
-//Check an email address format
+// 2. Check an email address format
 
 emailFormat = checkEmailFormat("miguel@aim.com");
 if (emailFormat) {
@@ -151,7 +152,7 @@ if (emailFormat) {
 };
 
 
-// Verify if a string is a URL
+// 3. Verify if a string is a URL
 
 urlFormat = checkURL("https://www.visualbitscorp.com");
 if (urlFormat) {
@@ -162,19 +163,19 @@ if (urlFormat) {
 };
 
 
-// UPPER CASE FIRST INICIAL EVERY WORD IN STRING
+// 4. UPPER CASE FIRST INICIAL EVERY WORD IN STRING
 
 upperCaseInitial = stringToUpperCaseInitial("MIGUEL rodriguez MARTINez");
 console.log(upperCaseInitial);
 
 
-// CHANGE A STRING VERSION OF A NUMBER TO A NUMBER DATA TYPE
+// 5. CHANGE A STRING VERSION OF A NUMBER TO A NUMBER DATA TYPE
 
 stringToNumber = getNumberDataType("000001971");
 console.log(stringToNumber);
 
 
-// FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
+// 6. FIND TOTAL VALUE ONLY FOR NUMBERS DATA TYPE VALUES
 
 arrayToSum = ["tree",10,5,"5","3MM",20,55,"31"]; 
 numericTotalValue = sumArrayNumberDataOnly(arrayToSum);
