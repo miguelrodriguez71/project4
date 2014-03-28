@@ -7,6 +7,7 @@ var phonePattern;
 var emailFormat;
 var urlFormat;
 var upperCaseInitial;
+var stringToNumber;
 
 
 // Functions
@@ -88,11 +89,25 @@ var stringToUpperCaseInitial = function(arg) {
         firstLetter = arrayString[i].substr(0,1);
         firstLetterUpper = firstLetter.toUpperCase();
         wordLength = arrayString[i].length - 1;
-        restOfWord = arrayString[i].substr(1, wordLength)
+        restOfWord = arrayString[i].substr(1, wordLength);
         wordUpperInitial = wordUpperInitial + firstLetterUpper + restOfWord + " ";
     };
-    return wordUpperInitial
+    return wordUpperInitial;
 };
+
+// FUNCTION TO CHANGE A STRING ARGUMENT TO NUMBER DATA TYPE
+
+var getNumberDataType = function(arg) {
+    if (!isNaN(arg)) {
+        //data is a number
+        var changedTypeVariable = parseInt(arg,10);
+        return changedTypeVariable;
+    } else {
+        console.log("Unable to convert the string to number data type")
+        return 0;
+    }
+};
+
 
 
 // MAIN CODE
@@ -128,7 +143,13 @@ if (urlFormat) {
     console.log("invalid URL format!");
 };
 
+
 // UPPER CASE FIRST INICIAL EVERY WORD IN STRING
 
-upperCaseInitial = stringToUpperCaseInitial("MIGUEL");
+upperCaseInitial = stringToUpperCaseInitial("MIGUEL rodriguez MARTINez");
 console.log(upperCaseInitial);
+
+
+// CHANGE A STRING VERSION OF A NUMBER TO A NUMBER DATA TYPE
+stringToNumber = getNumberDataType("000001971");
+console.log(stringToNumber);
